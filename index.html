@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Duolingo cliker</title>
+  <link rel="stylesheet" href="style.css"> <!-- Підключення CSS -->
+  <style>
+    /* Запобігаємо виділенню тексту на сторінці */
+* {
+  user-select: none;
+}
+    /* Основні стилі для body */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #434343;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+}
+
+/* Контейнер, який обгортає вміст */
+.container {
+  text-align: center;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Заголовок */
+h1 {
+  font-size: 32px;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+/* Стиль для клікабельного квадрата */
+.clickable-square {
+  width: 250px;
+  height: 120px;
+  background-color: #000000;
+  color: white;
+  font-size: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 10px;
+  margin: 20px auto;
+  transition: transform 0.2s;
+  outline: none;
+}
+
+.clickable-square:hover {
+  transform: scale(1.1);
+}
+
+/* Стиль для лічильника */
+.counter {
+  font-size: 24px;
+  color: #2c3e50;
+  margin-top: 20px;
+}
+
+/* Стиль для рівня */
+.level {
+  font-size: 24px;
+  color: #2c3e50;
+  margin-top: 10px;
+}
+
+/* Стиль для ціни */
+.price {
+  font-size: 20px;
+  color: #ff1900;
+  margin-top: 10px;
+}
+
+/* Стиль для ціни автоклікера */
+.autoklicker-price {
+  font-size: 20px;
+  color: #ff9d00;
+  margin-top: 10px;
+}
+
+/* Кнопка для автоклікера */
+.autoklicker-btn {
+  font-size: 18px;
+  background-color: #06ac00;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  margin-top: 20px;
+  cursor: pointer;
+  outline: none;
+  opacity: 0.6; /* Спочатку заблокована кнопка */
+}
+
+.autoklicker-btn:hover {
+  background-color: #06ac00;
+}
+
+/* Кнопка для купівлі автоклікера */
+.autoklicker-purchase-btn {
+  font-size: 18px;
+  background-color: #ff0000;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.autoklicker-purchase-btn:hover {
+  background-color: #ff0000;
+}
+
+/* Кнопка для підвищення рівня */
+.upgrade-btn {
+  font-size: 18px;
+  background-color: #f39c12;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  margin-top: 20px;
+  cursor: pointer;
+  outline: none;
+}
+
+.save-btn {
+  font-size: 18px;
+  background-color: #0010ee;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+  outline: none;
+}
+
+.load-btn {
+  font-size: 18px;
+  background-color: #fff200;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  margin-top: 20px;
+  cursor: pointer;
+  outline: none;
+}
+
+.upgrade-btn:hover {
+  background-color: #e67e22;
+}
+img{
+    height: 150px;
+    weight: 100px;
+
+
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Doulingo clicker</h1>
+    <img id="img-main" src="https://logolook.net/wp-content/uploads/2022/11/Duolingo-Emblem.png" alt="">
+    
+    <div class="clickable-square" id="clickableSquare">
+    🔥
+    </div>
+
+    <div class="counter" id="counter">Fire Counter :0</div>
+    <div class="level" id="level">Level: 1</div>
+    <div class="price" id="price">Price to level up: 100 fire</div>
+
+    <div class="autoklicker-price" id="autoklickerPrice">Autoclicker Prize: 200 fire</div>
+
+    <button class="autoklicker-btn" id="autoklickerBtn" disabled>Autocliker (0 click/sec)</button>
+    <button class="autoklicker-purchase-btn" id="autoklickerPurchaseBtn">Buy autocliker</button>
+    <button class="save-btn" onclick="save()">Save</button>
+    <button class="load-btn" onclick="load()">Load</button>
+    
+    <div class="upgrade">
+      <button class="upgrade-btn" id="upgradeBtn">Level up</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script> <!-- Підключення JavaScript -->
+</body>
+</html>
